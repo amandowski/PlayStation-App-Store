@@ -18,11 +18,10 @@ class MyFirstApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('My First App'),
+            title: Text('PlayStation'),
           ),
           body: Column(
             children: [
-              Text('The question'),
               RaisedButton(
                 child: Text('Answer 1'),
                 onPressed: answerQuestion,

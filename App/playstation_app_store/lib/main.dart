@@ -19,6 +19,7 @@ class MyFirstApp extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
 <<<<<<< HEAD
+<<<<<<< HEAD
             title: Text('PlayStation',
                 style: TextStyle(
                   fontSize: 30.0,
@@ -80,6 +81,9 @@ class MyFirstApp extends StatelessWidget {
                   )),
             ],
 >>>>>>> parent of 78cd6b9 (added console screen)
+=======
+            title: Text('My First App'),
+>>>>>>> parent of 83919ed (added header buttons and dropdown menu)
           ),
           body: Column(
             children: [

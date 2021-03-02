@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playstation_app_store/consoles.dart';
 
 void main() => runApp(MyFirstApp());
 
@@ -28,7 +29,12 @@ class MyFirstApp extends StatelessWidget {
                   PopupMenuItem(
                     child: ListTile(
                       title: Text('Consoles'),
-                      onTap: () {/* Write listener code here */},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Consoles()),
+                        );
+                      },
                     ),
                   ),
                   PopupMenuItem(

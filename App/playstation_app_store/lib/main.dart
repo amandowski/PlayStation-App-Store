@@ -18,7 +18,12 @@ class MyFirstApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('PlayStation'),
+            title: Text('PlayStation',
+                style: TextStyle(
+                  fontSize: 30.0,
+                )),
+            centerTitle: true,
+            backgroundColor: Colors.indigo[900],
           ),
           body: Column(
             children: [

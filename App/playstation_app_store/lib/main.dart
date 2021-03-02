@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playstation_app_store/consoles.dart';
 
 void main() => runApp(MyFirstApp());
 
@@ -16,18 +17,9 @@ class MyFirstApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            title: Text('PlayStation',
-                style: TextStyle(
-                  fontSize: 30.0,
-                )),
-            centerTitle: true,
-            backgroundColor: Colors.indigo[900],
-=======
             title: Text("PlayStation"),
             leading: GestureDetector(
               child: PopupMenuButton(
@@ -37,7 +29,12 @@ class MyFirstApp extends StatelessWidget {
                   PopupMenuItem(
                     child: ListTile(
                       title: Text('Consoles'),
-                      onTap: () {/* Write listener code here */},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Consoles()),
+                        );
+                      },
                     ),
                   ),
                   PopupMenuItem(
@@ -81,16 +78,10 @@ class MyFirstApp extends StatelessWidget {
                     ),
                   )),
             ],
->>>>>>> parent of 78cd6b9 (added console screen)
-=======
-            title: Text('My First App'),
->>>>>>> parent of 83919ed (added header buttons and dropdown menu)
-=======
-            title: Text('My First App'),
->>>>>>> parent of 83919ed (added header buttons and dropdown menu)
           ),
           body: Column(
             children: [
+              Text('The question'),
               RaisedButton(
                 child: Text('Answer 1'),
                 onPressed: answerQuestion,

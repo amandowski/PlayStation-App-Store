@@ -7,7 +7,13 @@ class Consoles extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("PlayStation"),
+          title: Text(
+            "PlayStation",
+            style: TextStyle(
+              fontSize: 35.0,
+            ),
+          ),
+          backgroundColor: Colors.indigo[900],
           leading: GestureDetector(
             child: PopupMenuButton(
               offset: Offset(0, 55),

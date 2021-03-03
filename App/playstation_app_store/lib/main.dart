@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_app_store/consoles.dart';
+import 'package:playstation_app_store/accessories.dart';
 
-void main() => runApp(MyFirstApp());
+void main() => runApp(PlayStationApp());
 
-class MyFirstApp extends StatelessWidget {
+class PlayStationApp extends StatelessWidget {
   var questions = [
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
@@ -46,7 +47,13 @@ class MyFirstApp extends StatelessWidget {
                   PopupMenuItem(
                     child: ListTile(
                       title: Text('Accessories'),
-                      onTap: () {/* Write listener code here */},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Accessories()),
+                        );
+                      },
                     ),
                   ),
                   PopupMenuItem(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/accessories.dart';
 
+import 'item.dart';
+
 class Controllers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -85,7 +87,17 @@ class Controllers extends StatelessWidget {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Item(
+                              itemName: 'Midnight Blue',
+                              price: 'Update Price', //update price
+                              image: 'assets/images/MidnightBlue.jpg',
+                            ),
+                          ));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -112,7 +124,17 @@ class Controllers extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Item(
+                              itemName: 'Magma Red',
+                              price: 'Update Price', //update price
+                              image: 'assets/images/MagmaRed.jpg',
+                            ),
+                          ));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -138,7 +160,17 @@ class Controllers extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Item(
+                              itemName: 'Glacier White',
+                              price: 'Update Price', //update price
+                              image: 'assets/images/GlacierWhite.jpg',
+                            ),
+                          ));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(

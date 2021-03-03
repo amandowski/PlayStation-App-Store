@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_app_store/accessories.dart';
+import 'package:playstation_app_store/item.dart';
 
 class Consoles extends StatelessWidget {
   @override
@@ -79,7 +80,17 @@ class Consoles extends StatelessWidget {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Item(
+                              itemName: 'PlayStation 4',
+                              price: '399.99',
+                              image: 'assets/images/PS4.jpg',
+                            ),
+                          ));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -105,7 +116,17 @@ class Consoles extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Item(
+                              itemName: 'PlayStation 4 Slim',
+                              price: 'Update Price', //update price
+                              image: 'assets/images/PS4Slim.jpg',
+                            ),
+                          ));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -131,7 +152,17 @@ class Consoles extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Item(
+                              itemName: 'PlayStation 4 Pro',
+                              price: 'Update Price', //update price
+                              image: 'assets/images/PS4Pro.jpg',
+                            ),
+                          ));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -162,4 +193,12 @@ class Consoles extends StatelessWidget {
       ),
     );
   }
+}
+
+class ItemInfo {
+  final String itemName;
+  final String price;
+  final String image;
+
+  ItemInfo(this.itemName, this.price, this.image);
 }

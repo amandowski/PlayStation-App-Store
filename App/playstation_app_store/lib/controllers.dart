@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_app_store/consoles.dart';
-import 'package:playstation_app_store/controllers.dart';
+import 'package:playstation_app_store/accessories.dart';
 
-class Accessories extends StatelessWidget {
+class Controllers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -85,24 +85,19 @@ class Accessories extends StatelessWidget {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Controllers()),
-                      );
-                    },
+                    onTap: () {/* Write listener code here */},
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image:
-                              ExactAssetImage('assets/images/DualShock4.jpg'),
+                              ExactAssetImage('assets/images/MidnightBlue.jpg'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          'DualShock 4',
+                          'Midnight Blue',
                           style: TextStyle(
                               color: Colors.indigo[900],
                               fontSize: 20,
@@ -121,15 +116,14 @@ class Accessories extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: ExactAssetImage(
-                              'assets/images/GoldWirelessHeadset.jpg'),
+                          image: ExactAssetImage('assets/images/MagmaRed.jpg'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          'Gold Wireless Headset',
+                          'Magma Red',
                           style: TextStyle(
                               color: Colors.indigo[900],
                               fontSize: 20,
@@ -148,41 +142,15 @@ class Accessories extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: ExactAssetImage('assets/images/HDCamera.jpg'),
+                          image:
+                              ExactAssetImage('assets/images/GlacierWhite.jpg'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          'HD Camera',
-                          style: TextStyle(
-                              color: Colors.indigo[900],
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      width: 300.0,
-                      height: 200.0,
-                      padding: EdgeInsets.all(20.0),
-                      margin: EdgeInsets.all(20.0),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {/* Write listener code here */},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: ExactAssetImage(
-                              'assets/images/MoveMotionController.jpg'),
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'Move Motion Controller',
+                          'Glacier White',
                           style: TextStyle(
                               color: Colors.indigo[900],
                               fontSize: 20,

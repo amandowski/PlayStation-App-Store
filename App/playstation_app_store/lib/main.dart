@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/accessories.dart';
+import 'package:playstation_app_store/account.dart';
+
 
 void main() => runApp(PlayStationApp());
 

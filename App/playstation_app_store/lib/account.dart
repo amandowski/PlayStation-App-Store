@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_app_store/accessories.dart';
-import 'package:playstation_app_store/account.dart';
+import 'package:playstation_app_store/consoles.dart';
 
-class Consoles extends StatelessWidget {
+class Account extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

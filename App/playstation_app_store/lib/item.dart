@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/controllers.dart';
 import 'package:playstation_app_store/accessories.dart';
+import 'package:playstation_app_store/account.dart';
 
 class Item extends StatelessWidget {
   final String itemName;
@@ -58,7 +59,12 @@ class Item extends StatelessWidget {
                   PopupMenuItem(
                     child: ListTile(
                       title: Text('My Account'),
-                      onTap: () {/* Write listener code here */},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Account()),
+                        );
+                      },
                     ),
                   ),
                   PopupMenuItem(

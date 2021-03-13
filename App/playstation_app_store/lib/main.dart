@@ -122,8 +122,8 @@ class PlayStationApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4 \n',
-                              price: '299.99',
+                              itemName: '  PlayStation 4 \n',
+                              price: '  299.99',
                               image: 'assets/images/PS4.jpg',
                             ),
                           ));
@@ -158,8 +158,8 @@ class PlayStationApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4 Slim\n',
-                              price: '299.99', //update price
+                              itemName: '  PlayStation 4 Slim\n',
+                              price: '  299.99', //update price
                               image: 'assets/images/PS4Slim.jpg',
                             ),
                           ));
@@ -194,8 +194,8 @@ class PlayStationApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4 Pro\n',
-                              price: '399.99', //update price
+                              itemName: '  PlayStation 4 Pro\n',
+                              price: '  399.99', //update price
                               image: 'assets/images/PS4Pro.jpg',
                             ),
                           ));

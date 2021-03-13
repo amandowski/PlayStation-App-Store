@@ -3,7 +3,6 @@ import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/account.dart';
 
-
 void main() => runApp(PlayStationApp());
 
 class PlayStationApp extends StatelessWidget {
@@ -61,7 +60,12 @@ class PlayStationApp extends StatelessWidget {
                   PopupMenuItem(
                     child: ListTile(
                       title: Text('My Account'),
-                      onTap: () {/* Write listener code here */},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Account()),
+                        );
+                      },
                     ),
                   ),
                   PopupMenuItem(
@@ -86,7 +90,12 @@ class PlayStationApp extends StatelessWidget {
               Padding(
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Account()),
+                      );
+                    },
                     child: Icon(
                       Icons.account_circle,
                       size: 26.0,
@@ -96,20 +105,12 @@ class PlayStationApp extends StatelessWidget {
           ),
           body: Column(
             children: [
-              Text('The question'),
-              RaisedButton(
-                child: Text('Answer 1'),
-                onPressed: answerQuestion,
-              ),
-              RaisedButton(
-                child: Text('Answer 2'),
-                onPressed: () => print('Answer 2 Selected'),
-              ),
-              RaisedButton(
-                  child: Text('Answer 3'),
-                  onPressed: () {
-                    print('Answer 3 Selected');
-                  }),
+              Text(
+                "Power to the Players",
+                style: TextStyle(
+                  fontSize: 35.0,
+                ),
+              )
             ],
           )),
     );

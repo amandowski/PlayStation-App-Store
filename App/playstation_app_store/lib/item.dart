@@ -89,7 +89,12 @@ class Item extends StatelessWidget {
               Padding(
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Account()),
+                      );
+                    },
                     child: Icon(
                       Icons.account_circle,
                       size: 26.0,

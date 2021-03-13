@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/accessories.dart';
-import 'package:playstation_app_store/account.dart';
-import 'package:playstation_app_store/item.dart';
 
-class Consoles extends StatelessWidget {
+import 'item.dart';
+
+class Controllers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,12 +48,7 @@ class Consoles extends StatelessWidget {
                 PopupMenuItem(
                   child: ListTile(
                     title: Text('My Account'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Account()),
-                      );
-                    },
+                    onTap: () {/* Write listener code here */},
                   ),
                 ),
                 PopupMenuItem(
@@ -96,25 +92,26 @@ class Consoles extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4',
-                              price: '399.99',
-                              image: 'assets/images/PS4.jpg',
+                              itemName: 'Midnight Blue',
+                              price: 'Update Price', //update price
+                              image: 'assets/images/MidnightBlue.jpg',
                             ),
                           ));
                     },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4.jpg'),
+                          image:
+                              ExactAssetImage('assets/images/MidnightBlue.jpg'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          'PlayStation 4',
+                          'Midnight Blue',
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.indigo[900],
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -132,25 +129,25 @@ class Consoles extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4 Slim',
+                              itemName: 'Magma Red',
                               price: 'Update Price', //update price
-                              image: 'assets/images/PS4Slim.jpg',
+                              image: 'assets/images/MagmaRed.jpg',
                             ),
                           ));
                     },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4Slim.jpg'),
+                          image: ExactAssetImage('assets/images/MagmaRed.jpg'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          'PlayStation 4 Slim',
+                          'Magma Red',
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.indigo[900],
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -168,25 +165,26 @@ class Consoles extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4 Pro',
+                              itemName: 'Glacier White',
                               price: 'Update Price', //update price
-                              image: 'assets/images/PS4Pro.jpg',
+                              image: 'assets/images/GlacierWhite.jpg',
                             ),
                           ));
                     },
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4Pro.jpg'),
+                          image:
+                              ExactAssetImage('assets/images/GlacierWhite.jpg'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          'PlayStation 4 Pro',
+                          'Glacier White',
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.indigo[900],
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -204,12 +202,4 @@ class Consoles extends StatelessWidget {
       ),
     );
   }
-}
-
-class ItemInfo {
-  final String itemName;
-  final String price;
-  final String image;
-
-  ItemInfo(this.itemName, this.price, this.image);
 }

@@ -133,11 +133,11 @@ class Item extends StatelessWidget {
                 },
               ),
               RaisedButton(
+                onPressed: () {/* Write listener code here */},
                 child: Text(
                   'Add to Cart',
                   style: TextStyle(color: Colors.indigo[900], fontSize: 30),
                 ),
-                //onPressed: {/* Write listener code here */}
               ),
             ],
           ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/account.dart';
 import 'package:playstation_app_store/item.dart';
+import 'package:playstation_app_store/main.dart';
 
 class Consoles extends StatelessWidget {
   @override
@@ -101,7 +102,7 @@ class Consoles extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4',
+                              itemName: 'PlayStation 4 \n',
                               price: '299.99',
                               image: 'assets/images/PS4.jpg',
                             ),
@@ -137,7 +138,7 @@ class Consoles extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4 Slim',
+                              itemName: 'PlayStation 4 Slim\n',
                               price: '299.99', //update price
                               image: 'assets/images/PS4Slim.jpg',
                             ),
@@ -173,7 +174,7 @@ class Consoles extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'PlayStation 4 Pro',
+                              itemName: 'PlayStation 4 Pro\n',
                               price: '399.99', //update price
                               image: 'assets/images/PS4Pro.jpg',
                             ),

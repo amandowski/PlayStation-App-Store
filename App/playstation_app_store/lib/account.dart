@@ -84,7 +84,7 @@ class Account extends StatelessWidget {
                 )),
           ],
         ),
-        body: SingleChildScrollView(
+        /*body: SingleChildScrollView(
           child: Container(
               margin: EdgeInsets.all(24),
               child: Column(
@@ -168,8 +168,9 @@ class Account extends StatelessWidget {
                     ),
                   ),
                 ],
-              )),
-        ),
+              )
+              ),
+        ),*/
       ),
     );
   }

@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_app_store/accessories.dart';
+<<<<<<< HEAD
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/account.dart';
+=======
+import 'package:playstation_app_store/account.dart';
+import 'package:playstation_app_store/consoles.dart';
+import 'package:playstation_app_store/item.dart';
+import 'package:playstation_app_store/main.dart';
+>>>>>>> e04ef203d64290d4db08fa57906acde41f7a23d1
 
 class Cart extends StatelessWidget {
   @override
@@ -80,6 +87,7 @@ class Cart extends StatelessWidget {
                   ),
                 )),
             Padding(
+<<<<<<< HEAD
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                   onTap: () {
@@ -342,6 +350,24 @@ class Cart extends StatelessWidget {
             )
           )
         )*/
+=======
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Account()),
+                  );
+                },
+                child: Icon(
+                  Icons.account_circle,
+                  size: 26.0,
+                ),
+              ),
+            ),
+          ],
+        ),
+>>>>>>> e04ef203d64290d4db08fa57906acde41f7a23d1
       ),
     );
   }

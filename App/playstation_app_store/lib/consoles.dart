@@ -3,6 +3,7 @@ import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/account.dart';
 import 'package:playstation_app_store/item.dart';
 import 'package:playstation_app_store/main.dart';
+import 'package:playstation_app_store/cart.dart';
 
 class Consoles extends StatelessWidget {
   @override
@@ -69,7 +70,12 @@ class Consoles extends StatelessWidget {
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
-                  onTap: () {/* Write listener code here */},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Cart()),
+                    );
+                  },
                   child: Icon(
                     Icons.shopping_cart,
                     size: 26.0,

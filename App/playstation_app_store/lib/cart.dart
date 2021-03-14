@@ -113,8 +113,26 @@ class Cart extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ))
                   ),
-                ]
-              )
+                  RaisedButton(
+                      child: Text(
+                        'Continue Shopping',
+                        style: TextStyle(color: Colors.red[900], fontSize: 30),
+                      ),
+                      onPressed: () {
+                         //Navigator.pop(context);
+                        },
+                    ),
+                    RaisedButton(
+                      child: Text(
+                        'Checkout',
+                        style: TextStyle(color: Colors.red[900], fontSize: 30),
+                      ),
+                      onPressed: () {
+                        // Navigator.pop(context);
+                        },
+                    ),
+              ]
+            )
           )
         )
         /*body: SingleChildScrollView(

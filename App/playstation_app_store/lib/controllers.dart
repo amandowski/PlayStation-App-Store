@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playstation_app_store/cart.dart';
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/account.dart';
@@ -70,7 +71,12 @@ class Controllers extends StatelessWidget {
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
-                  onTap: () {/* Write listener code here */},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Cart()),
+                    );
+                  },
                   child: Icon(
                     Icons.shopping_cart,
                     size: 26.0,

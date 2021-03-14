@@ -95,6 +95,28 @@ class Cart extends StatelessWidget {
                 )),
           ],
         ),
+        body: SingleChildScrollView(
+          child: Container(
+              margin: EdgeInsets.all(24),
+              child: Column(
+                children: [
+                  Positioned(
+                  top: 75.0,
+                  //left: 15.0,
+                  child: Center(
+                  child: Text(
+                    'CART',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold),
+                  ))
+                  ),
+                ]
+              )
+          )
+        )
         /*body: SingleChildScrollView(
           child: Container(
               margin: EdgeInsets.all(24),

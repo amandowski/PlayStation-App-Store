@@ -71,29 +71,34 @@ class Cart extends StatelessWidget {
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                   onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Cart()),
-                      );
-                    },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Cart()),
+                    );
+                  },
                   child: Icon(
                     Icons.shopping_cart,
                     size: 26.0,
                   ),
                 )),
             Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Account()),
-                    );
-                  },
-                  child: Icon(
-                    Icons.account_circle,
-                    size: 26.0,
-                  ),
-                )),
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Account()),
+                  );
+                },
+                child: Icon(
+                  Icons.account_circle,
+                  size: 26.0,
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}

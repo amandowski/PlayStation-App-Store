@@ -128,14 +128,15 @@ class Cart extends StatelessWidget {
                       ),
                      ),
                      SizedBox (height: 12.0),
-                  Column(children: <Widget>[
-                    Container(
+                     Column(children: <Widget>[
+                      Container(
                            width: 100.0,
                            child: Text (
                               "xyz",
+                              textAlign: TextAlign.right,
                              style: TextStyle(
                              fontWeight: FontWeight.bold,
-                             fontSize: 12.0,
+                             fontSize: 20.0,
                               ),
                            ),
                          ),
@@ -211,6 +212,42 @@ class Cart extends StatelessWidget {
                         "Price: ",
                         style: TextStyle(color: Colors.red[900], fontSize: 20, fontWeight: FontWeight.bold),
                       ),
+                    ],
+                  ),
+                  Divider( color: Colors.black,),
+                  SizedBox (height: 12.0),
+                  Column(children: <Widget>[
+                   Container(
+                           width: 100.0,
+                           child: Center(
+                             child: Text(
+                              'ORDER SUMMARY',
+                              textAlign: TextAlign.center,
+                             style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 20.0,
+                              ),
+                             ) 
+                           ), 
+                         ),
+                  ]
+                  ),
+                  SizedBox (height: 12.0),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                           "Subtotal: " ,
+                           style: TextStyle(color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
+                         ),
+                    ],
+                  ),
+                  SizedBox (height: 12.0),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                           "Discount: ",
+                           style: TextStyle(color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
+                         ),
                     ],
                   ),
                   SizedBox (height: 12.0),

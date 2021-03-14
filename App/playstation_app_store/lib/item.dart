@@ -4,6 +4,7 @@ import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/controllers.dart';
 import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/account.dart';
+import 'package:playstation_app_store/cart.dart';
 
 class Item extends StatelessWidget {
   final String itemName;
@@ -82,10 +83,7 @@ class Item extends StatelessWidget {
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Cart()),
-                    );
+                      /* */
                     },
                     child: Icon(
                       Icons.shopping_cart,

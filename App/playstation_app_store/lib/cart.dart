@@ -204,24 +204,38 @@ class Cart extends StatelessWidget {
                     ),
                     ]
                   ),
-                  RaisedButton(
+                  SizedBox (height: 12.0),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "Price: ",
+                        style: TextStyle(color: Colors.red[900], fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  SizedBox (height: 12.0),
+                  Row(children: <Widget>[
+                    RaisedButton(
                       child: Text(
                         'Continue Shopping',
-                        style: TextStyle(color: Colors.red[900], fontSize: 30),
+                        style: TextStyle(color: Colors.red[900], fontSize: 20),
                       ),
                       onPressed: () {
                          //Navigator.pop(context);
                         },
                     ),
+                    Spacer(),
                     RaisedButton(
                       child: Text(
                         'Checkout',
-                        style: TextStyle(color: Colors.red[900], fontSize: 30),
+                        style: TextStyle(color: Colors.red[900], fontSize: 20),
                       ),
                       onPressed: () {
                         // Navigator.pop(context);
                         },
                     ),
+                  ]
+                  ),
             ]
           )
         ),

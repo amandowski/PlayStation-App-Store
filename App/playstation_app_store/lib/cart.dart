@@ -95,7 +95,137 @@ class Cart extends StatelessWidget {
                 )),
           ],
         ),
-        body: SingleChildScrollView(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            children: <Widget>[
+              Positioned(
+                  top: 75.0,
+                  //left: 15.0,
+                  child: Center(
+                  child: Text(
+                    'CART',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                  )
+                  ),
+                  SizedBox (height: 12.0),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                       width: 80.0,
+                       height: 80.0,
+                       decoration: BoxDecoration(
+                       color: Colors.red,
+                       image: DecorationImage(
+                       image: ExactAssetImage(" "),
+                       fit: BoxFit.fitHeight,
+                       ),
+                      ),
+                     ),
+                     SizedBox (height: 12.0),
+                  Column(children: <Widget>[
+                    Container(
+                           width: 100.0,
+                           child: Text (
+                              "xyz",
+                             style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 12.0,
+                              ),
+                           ),
+                         ),
+                  ]
+                  ),
+                  ]
+                  ),
+                  SizedBox (height: 12.0),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                    width: 25.0,
+                    height: 25.0,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size:20.0,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                    "1",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  ),
+                  Container(
+                    width: 25.0,
+                    height: 25.0,
+                    decoration: BoxDecoration(
+                      color: Colors.blue[300],
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                    child: Icon(
+                      Icons.remove,
+                      color: Colors.white,
+                      size:20.0,
+                      ),
+                     ),
+                     Spacer(),
+                     RaisedButton(
+                      child: Text(
+                        'Delete',
+                        style: TextStyle(color: Colors.red[900], fontSize: 20),
+                      ),
+                      onPressed: () {
+                         //Navigator.pop(context);
+                        },
+                    ),
+                    Spacer(),
+                    RaisedButton(
+                      child: Text(
+                        'Save for later',
+                        style: TextStyle(color: Colors.red[900], fontSize: 20),
+                      ),
+                      onPressed: () {
+                        // Navigator.pop(context);
+                        },
+                    ),
+                    ]
+                  ),
+                  RaisedButton(
+                      child: Text(
+                        'Continue Shopping',
+                        style: TextStyle(color: Colors.red[900], fontSize: 30),
+                      ),
+                      onPressed: () {
+                         //Navigator.pop(context);
+                        },
+                    ),
+                    RaisedButton(
+                      child: Text(
+                        'Checkout',
+                        style: TextStyle(color: Colors.red[900], fontSize: 30),
+                      ),
+                      onPressed: () {
+                        // Navigator.pop(context);
+                        },
+                    ),
+            ]
+          )
+        ),
+        /*body: SingleChildScrollView(
           child: Container(
               margin: EdgeInsets.all(24),
               child: Column(
@@ -113,6 +243,32 @@ class Cart extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ))
                   ),
+                  SizedBox (height: 12.0),
+                      Container(
+                       width: 80.0,
+                       height: 80.0,
+                       decoration: BoxDecoration(
+                       color: Colors.red,
+                       image: DecorationImage(
+                       image: ExactAssetImage(" "),
+                       fit: BoxFit.fitHeight,
+                       ),
+                      ),
+                     ),
+                     SizedBox (width: 12.0),
+                     Column(
+                       children: <Widget>[
+                         Container(
+                           width: 100.0,
+                           child: Text (
+                             "xyz",
+                             style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                              ),
+                           ),
+                         ),
+                       ]
+                     ),
                   RaisedButton(
                       child: Text(
                         'Continue Shopping',
@@ -134,94 +290,7 @@ class Cart extends StatelessWidget {
               ]
             )
           )
-        )
-        /*body: SingleChildScrollView(
-          child: Container(
-              margin: EdgeInsets.all(24),
-              child: Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {/* Write listener code here */},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4.jpg'),
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'PlayStation 4',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      width: 300.0,
-                      height: 200.0,
-                      padding: EdgeInsets.all(20.0),
-                      margin: EdgeInsets.all(20.0),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {/* Write listener code here */},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4Slim.jpg'),
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'PlayStation 4 Slim',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      width: 300.0,
-                      height: 200.0,
-                      padding: EdgeInsets.all(20.0),
-                      margin: EdgeInsets.all(20.0),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {/* Write listener code here */},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4Pro.jpg'),
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'PlayStation 4 Pro',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      width: 300.0,
-                      height: 200.0,
-                      padding: EdgeInsets.all(20.0),
-                      margin: EdgeInsets.all(20.0),
-                    ),
-                  ),
-                ],
-              )
-              ),
-        ),*/
+        )*/
       ),
     );
   }

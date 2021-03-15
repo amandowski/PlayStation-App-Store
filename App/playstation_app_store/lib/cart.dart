@@ -7,7 +7,43 @@ import 'package:playstation_app_store/main.dart';
 class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int counter = 1;
+    int counter = 0;
+    List<PlayStationApp> item_cart = [];
+    double totalCartValue = 0;
+
+    if(item_cart.isEmpty)
+    {
+              Positioned(
+                  top: 75.0,
+                  //left: 15.0,
+                  child: Center(
+                  child: Text(
+                    'CART',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                  )
+                  );
+                 // SizedBox (height: 12.0),
+                     Column(children: <Widget>[
+                      Container(
+                           width: 100.0,
+                           child: Text (
+                              "The Cart is empty",
+                              textAlign: TextAlign.right,
+                             style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 20.0,
+                              ),
+                           ),
+                         ),
+                  ]
+                  );
+    }
+  //int get total => cart.length;
         return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -115,6 +151,7 @@ class Cart extends StatelessWidget {
                   )
                   )
                   ),
+                  //return item_cart != null ? item_cart  
                   SizedBox (height: 12.0),
                   Row(
                     children: <Widget>[

@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:playstation_app_store/accessories.dart';
-<<<<<<< HEAD
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/account.dart';
-=======
-import 'package:playstation_app_store/account.dart';
-import 'package:playstation_app_store/consoles.dart';
-import 'package:playstation_app_store/item.dart';
-import 'package:playstation_app_store/main.dart';
->>>>>>> e04ef203d64290d4db08fa57906acde41f7a23d1
 
 class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    int counter = 1;
+        return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -87,7 +81,6 @@ class Cart extends StatelessWidget {
                   ),
                 )),
             Padding(
-<<<<<<< HEAD
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                   onTap: () {
@@ -162,12 +155,18 @@ class Cart extends StatelessWidget {
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    child: Icon(
+                    child: GestureDetector(
+                      onTap: (){
+                        counter+1;
+                      },
+                      child: Icon(
                       Icons.add,
                       color: Colors.white,
                       size:20.0,
                     ),
+                    ),
                   ),
+                  //print (counter),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
@@ -185,11 +184,16 @@ class Cart extends StatelessWidget {
                       color: Colors.blue[300],
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    child: Icon(
+                    child: GestureDetector(
+                      onTap: (){
+                        counter-1;
+                      },
+                      child: Icon(
                       Icons.remove,
                       color: Colors.white,
                       size:20.0,
                       ),
+                    ),
                      ),
                      Spacer(),
                      RaisedButton(
@@ -284,90 +288,6 @@ class Cart extends StatelessWidget {
             ]
           )
         ),
-        /*body: SingleChildScrollView(
-          child: Container(
-              margin: EdgeInsets.all(24),
-              child: Column(
-                children: [
-                  Positioned(
-                  top: 75.0,
-                  //left: 15.0,
-                  child: Center(
-                  child: Text(
-                    'CART',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 35.0,
-                        fontWeight: FontWeight.bold),
-                  ))
-                  ),
-                  SizedBox (height: 12.0),
-                      Container(
-                       width: 80.0,
-                       height: 80.0,
-                       decoration: BoxDecoration(
-                       color: Colors.red,
-                       image: DecorationImage(
-                       image: ExactAssetImage(" "),
-                       fit: BoxFit.fitHeight,
-                       ),
-                      ),
-                     ),
-                     SizedBox (width: 12.0),
-                     Column(
-                       children: <Widget>[
-                         Container(
-                           width: 100.0,
-                           child: Text (
-                             "xyz",
-                             style: TextStyle(
-                             fontWeight: FontWeight.bold,
-                              ),
-                           ),
-                         ),
-                       ]
-                     ),
-                  RaisedButton(
-                      child: Text(
-                        'Continue Shopping',
-                        style: TextStyle(color: Colors.red[900], fontSize: 30),
-                      ),
-                      onPressed: () {
-                         //Navigator.pop(context);
-                        },
-                    ),
-                    RaisedButton(
-                      child: Text(
-                        'Checkout',
-                        style: TextStyle(color: Colors.red[900], fontSize: 30),
-                      ),
-                      onPressed: () {
-                        // Navigator.pop(context);
-                        },
-                    ),
-              ]
-            )
-          )
-        )*/
-=======
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Account()),
-                  );
-                },
-                child: Icon(
-                  Icons.account_circle,
-                  size: 26.0,
-                ),
-              ),
-            ),
-          ],
-        ),
->>>>>>> e04ef203d64290d4db08fa57906acde41f7a23d1
       ),
     );
   }

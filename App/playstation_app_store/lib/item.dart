@@ -83,7 +83,10 @@ class Item extends StatelessWidget {
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
                     onTap: () {
-                      /* */
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Cart()),
+                      );
                     },
                     child: Icon(
                       Icons.shopping_cart,

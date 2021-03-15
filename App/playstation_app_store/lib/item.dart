@@ -16,7 +16,7 @@ class Item extends StatelessWidget {
       @required this.price,
       @required this.image})
       : super(key: key);
-
+      List<Item> item_cart = List<Item>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -142,7 +142,9 @@ class Item extends StatelessWidget {
                 },
               ),
               RaisedButton(
-                onPressed: () {/* Write listener code here */},
+                onPressed: () {
+                  /* */
+                },
                 child: Text(
                   'Add to Cart',
                   style: TextStyle(color: Colors.indigo[900], fontSize: 30),

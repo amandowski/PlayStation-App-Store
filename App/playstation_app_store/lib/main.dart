@@ -5,19 +5,12 @@ import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/account.dart';
 import 'package:playstation_app_store/item.dart';
 
-void main() => runApp(PlayStationApp());
+void main() => runApp(MaterialApp(
+      home: PlayStationApp(),
+      debugShowCheckedModeBanner: false,
+    ));
 
 class PlayStationApp extends StatelessWidget {
-  var questions = [
-    'What\'s your favorite color?',
-    'What\'s your favorite animal?',
-  ];
-  var questionIndex = 0;
-  void answerQuestion() {
-    questionIndex += 1;
-    print('Answer ' + questionIndex.toString() + ' Selected');
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

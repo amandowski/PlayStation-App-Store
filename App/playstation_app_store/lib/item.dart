@@ -4,7 +4,6 @@ import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/controllers.dart';
 import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/account.dart';
-import 'package:playstation_app_store/cart.dart';
 
 class Item extends StatelessWidget {
   final String itemName;
@@ -145,7 +144,12 @@ class Item extends StatelessWidget {
                 },
               ),
               RaisedButton(
-                onPressed: () {/* Write listener code here */},
+                onPressed: () {
+                  cartItem.add(CartItem(
+                      cartItemName: itemName,
+                      cartPrice: price,
+                      cartImage: image));
+                },
                 child: Text(
                   'Add to Cart',
                   style: TextStyle(color: Colors.indigo[900], fontSize: 30),

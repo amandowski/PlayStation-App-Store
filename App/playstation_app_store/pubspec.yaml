@@ -47,6 +47,17 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/DualShock4.jpg
+    - assets/images/GlacierWhite.jpg
+    - assets/images/GoldWirelessHeadset.jpg
+    - assets/images/HDCamera.jpg
+    - assets/images/MagmaRed.jpg
+    - assets/images/MidnightBlue.jpg
+    - assets/images/MoveMotionController.jpg
+    - assets/images/PS4.jpg
+    - assets/images/PS4Pro.jpg
+    - assets/images/PS4Slim.jpg
+    - assets/images/VirtualReality.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

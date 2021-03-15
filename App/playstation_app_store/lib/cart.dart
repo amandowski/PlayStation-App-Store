@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/account.dart';
+import 'package:playstation_app_store/main.dart';
 
 class Cart extends StatelessWidget {
   @override
@@ -120,13 +121,13 @@ class Cart extends StatelessWidget {
                       Container(
                        width: 80.0,
                        height: 80.0,
-                       decoration: BoxDecoration(
+                       /*decoration: BoxDecoration(
                        color: Colors.red,
                        image: DecorationImage(
                        image: ExactAssetImage(" "),
                        fit: BoxFit.fitHeight,
                        ),
-                      ),
+                      ),*/
                      ),
                      SizedBox (height: 12.0),
                      Column(children: <Widget>[
@@ -155,22 +156,23 @@ class Cart extends StatelessWidget {
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    child: GestureDetector(
-                      onTap: (){
-                        counter+1;
-                      },
+                    child: FloatingActionButton(
                       child: Icon(
                       Icons.add,
                       color: Colors.white,
                       size:20.0,
                     ),
+                    onPressed: (){
+                        counter++;
+                      },
                     ),
                   ),
                   //print (counter),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
-                    "1",
+                    //  counter,
+                    '$counter',
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -184,16 +186,16 @@ class Cart extends StatelessWidget {
                       color: Colors.blue[300],
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    child: GestureDetector(
-                      onTap: (){
-                        counter-1;
-                      },
+                     child: FloatingActionButton(
                       child: Icon(
                       Icons.remove,
                       color: Colors.white,
                       size:20.0,
                       ),
-                    ),
+                    onPressed: (){
+                        counter--;
+                      },
+                     ),
                      ),
                      Spacer(),
                      RaisedButton(
@@ -212,7 +214,10 @@ class Cart extends StatelessWidget {
                         style: TextStyle(color: Colors.red[900], fontSize: 20),
                       ),
                       onPressed: () {
-                        // Navigator.pop(context);
+                         Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Account()),
+                      );
                         },
                     ),
                     ]
@@ -270,7 +275,10 @@ class Cart extends StatelessWidget {
                         style: TextStyle(color: Colors.red[900], fontSize: 20),
                       ),
                       onPressed: () {
-                         //Navigator.pop(context);
+                          Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PlayStationApp()),
+                      );
                         },
                     ),
                     Spacer(),

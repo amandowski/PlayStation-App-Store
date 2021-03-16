@@ -58,7 +58,7 @@ getTotalAmount() {
 getDiscount()
 {
   double disCountedAmount = 0.0;
-  if(cartItem.length >= 4)
+  if(cartItem.length >= 3)
   {
     disCountedAmount = getTotalAmount()-(getTotalAmount()*0.10);
   }

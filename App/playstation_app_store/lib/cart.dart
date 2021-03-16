@@ -9,64 +9,67 @@ class CartItem {
   String cartItemName;
   String cartPrice;
   String cartImage;
-  int quantity = 1;
-  dynamic subTotal;
+  int quantity;
+  double subTotal;
 
-  CartItem({
-    this.cartItemName,
-    this.cartPrice,
-    this.cartImage,
-    this.quantity,
-    this.subTotal
-  });
+  CartItem(
+      {this.cartItemName,
+      this.cartPrice,
+      this.cartImage,
+      this.quantity,
+      this.subTotal});
 }
 
 List<CartItem> cartItem = new List<CartItem>();
 
-  decrementItemFromCart(int index)
-  {
-    String qty = cartItem[index].quantity.toString();
-    if(cartItem[index].quantity > 1)
+decrementItemFromCart(int index) {
+  if (cartItem[index].quantity > 1) {
+    cartItem[index].quantity = --cartItem[index].quantity;
+  } else {
+    cartItem.removeAt(index);
+  }
+  /*double value = double.parse(cartItem[index].cartPrice);
+  cartItem[index].subTotal = (cartItem[index].quantity * value);*/
+}
+
+deleteItemFromCart(int index) {
+  cartItem.removeAt(index);
+}
+
+incrementItemFromCart(int index) {
+  if (cartItem[index].quantity == null) {
+    cartItem[index].quantity = 1;
+  }
+  cartItem[index].quantity = ++cartItem[index].quantity;
+}
+
+getTotalAmount() {
+  double totalAmount = 0.0;
+ // totalAmount = cartItem
+  cartItem.forEach((element) {
+    if(element.subTotal == null)
     {
-      cartItem[index].quantity = --cartItem[index].quantity;
+      element.subTotal = double.parse(element.cartPrice);
+    }
+    totalAmount += element.subTotal;
+  });
+  return totalAmount;
+}
+getDiscount()
+{
+  double disCountedAmount = 0.0;
+  cartItem.forEach((element) {
+    if(element.quantity >= 4)
+    {
+      disCountedAmount = element.subTotal-((element.subTotal)*0.10);
     }
     else
     {
-      cartItem.remove(index);
-      return({"status": true});
+      disCountedAmount = 0.0;
     }
-    double value = double.parse(cartItem[index].cartPrice);
-    cartItem[index].subTotal = (cartItem[index].quantity * value).roundToDouble();
-  }
-  deleteItemFromCart(int index)
-  {
-    cartItem.removeAt(index);
-    //cartItem = new List<CartItem>();
-    //cartItem = List<String>();
-  }
-  incrementItemFromCart(int index)
-  {
-    if(cartItem[index].quantity == null)
-    {
-      cartItem[index].quantity = 1;
-    }
-    cartItem[index].quantity = ++cartItem[index].quantity;
-    //int i = cartItem[1].quantity;
-    double value = double.parse(cartItem[index].cartPrice);
-    cartItem[index].subTotal = (cartItem[index].quantity * value).roundToDouble();
-  }
-  getTotalAmount()
-  {
-    double totalAmount = 0.0;
-    int value;
-    cartItem.forEach((element) 
-    {
-      value = int.parse(element.subTotal);
-      totalAmount += value;
-    }
-    );
-    return totalAmount;
-  }
+  });
+  return disCountedAmount;
+}
 
 class Cart extends StatelessWidget {
   @override
@@ -174,20 +177,9 @@ class Cart extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 12.0),
-                  cartList(),
+                  CartListItem(),
                   SizedBox(height: 12.0),
-                  /*SizedBox(height: 12.0),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        "Price: ",
-                        style: TextStyle(
-                            color: Colors.red[900],
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),*/
+                  SizedBox(height: 12.0),
                   Divider(
                     color: Colors.black,
                   ),
@@ -210,7 +202,7 @@ class Cart extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "Subtotal: ",
+                        "Subtotal: ${getTotalAmount()}",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
@@ -222,7 +214,7 @@ class Cart extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "Discount: ",
+                        "Discount: ${getDiscount().toStringAsFixed(2)}",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
@@ -265,126 +257,133 @@ class Cart extends StatelessWidget {
   }
 }
 
-Widget cartList() {
-  if (cartItem.length != 0) {
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: cartItem.length,
-      itemBuilder: (context, index) {
-        return Column(children: <Widget>[
-          Row(children: <Widget>[
-            Container(
-              width: 80.0,
-              height: 80.0,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                image: DecorationImage(
-                  image: ExactAssetImage(cartItem[index].cartImage),
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-            SizedBox(height: 12.0),
-            Column(children: <Widget>[
+class CartListItem extends StatefulWidget {
+  @override
+  _CartListItemState createState() => new _CartListItemState();
+}
+
+class _CartListItemState extends State<CartListItem> {
+  @override
+  Widget build(BuildContext context) {
+    if (cartItem.length != 0) {
+      return ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: cartItem.length,
+        itemBuilder: (context, index) {
+          cartItem[index].subTotal = double.parse(cartItem[index].cartPrice) *
+              cartItem[index].quantity;
+          return Column(children: <Widget>[
+            Row(children: <Widget>[
               Container(
-                width: 100.0,
-                child: Text(
-                  cartItem[index].cartItemName,
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
+                width: 80.0,
+                height: 80.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  image: DecorationImage(
+                    image: ExactAssetImage(cartItem[index].cartImage),
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
+              ),
+              SizedBox(height: 12.0),
+              Column(children: <Widget>[
+                Container(
+                  width: 100.0,
+                  child: Text(
+                    cartItem[index].cartItemName,
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ]),
+            ]),
+            Row(children: <Widget>[
+              Container(
+                width: 25.0,
+                height: 25.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue[300],
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() => incrementItemFromCart(index));
+                  },
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(
+                  cartItem[index].quantity.toString(),
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                width: 25.0,
+                height: 25.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue[300],
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() => decrementItemFromCart(index));
+                  },
+                  child: Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
+                ),
+              ),
+              Spacer(),
+              RaisedButton(
+                child: Text(
+                  'Delete',
+                  style: TextStyle(color: Colors.red[900], fontSize: 20),
+                ),
+                onPressed: () {
+                  setState(() => deleteItemFromCart(index));
+                },
+              ),
+              Spacer(),
+              RaisedButton(
+                child: Text(
+                  'Save for later',
+                  style: TextStyle(color: Colors.red[900], fontSize: 20),
+                ),
+                onPressed: () {
+                  // Navigator.pop(context);
+                },
               ),
             ]),
-          ]),
-          SizedBox(height: 12.0),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        'Price: ${cartItem[index].subTotal}',
-                        style: TextStyle(
-                            color: Colors.red[900],
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-          Row(children: <Widget>[
-            Container(
-              width: 25.0,
-              height: 25.0,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(4.0),
-              ),
-              child: GestureDetector(
-                onTap: () {
-                  incrementItemFromCart(index);
-                },
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: 20.0,
+            Row(
+              children: <Widget>[
+                Text(
+                  "Price: " + cartItem[index].subTotal.toString(),
+                  style: TextStyle(
+                      color: Colors.red[900],
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
-              ),
+              ],
             ),
-            //print (counter),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              //cartItem[index].quantity = 1;
-              child: Text(
-                cartItem[index].quantity.toString(),
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Container(
-              width: 25.0,
-              height: 25.0,
-              decoration: BoxDecoration(
-                color: Colors.blue[300],
-                borderRadius: BorderRadius.circular(4.0),
-              ),
-              child: GestureDetector(
-                onTap: () {
-                  decrementItemFromCart(index);
-                },
-                child: Icon(
-                  Icons.remove,
-                  color: Colors.white,
-                  size: 20.0,
-                ),
-              ),
-            ),
-            Spacer(),
-            RaisedButton(
-              child: Text(
-                'Delete',
-                style: TextStyle(color: Colors.red[900], fontSize: 20),
-              ),
-              onPressed: () {
-                deleteItemFromCart(index);
-              },
-            ),
-            Spacer(),
-            RaisedButton(
-              child: Text(
-                'Save for later',
-                style: TextStyle(color: Colors.red[900], fontSize: 20),
-              ),
-              onPressed: () {
-                // Navigator.pop(context);
-              },
-            ),
-          ])
-        ]);
-      },
-    );
+          ]);
+        },
+      );
+    }
+    return Text('Nothing in Cart');
   }
-  return Text('Nothing in Cart');
 }

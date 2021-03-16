@@ -10,7 +10,7 @@ class CartItem {
   String cartPrice;
   String cartImage;
   int quantity = 1;
-  String subTotal;
+  dynamic subTotal;
 
   CartItem({
     this.cartItemName,
@@ -35,11 +35,13 @@ List<CartItem> cartItem = new List<CartItem>();
       cartItem.remove(index);
       return({"status": true});
     }
-    //cartItem[index].subTotal = (cartItem[index].quantity * cartItem[index].cartPrice).roundToDouble() as String;
+    double value = double.parse(cartItem[index].cartPrice);
+    cartItem[index].subTotal = (cartItem[index].quantity * value).roundToDouble();
   }
-  deleteItemFromCart()
+  deleteItemFromCart(int index)
   {
-    cartItem = new List<CartItem>();
+    cartItem.removeAt(index);
+    //cartItem = new List<CartItem>();
     //cartItem = List<String>();
   }
   incrementItemFromCart(int index)
@@ -50,14 +52,17 @@ List<CartItem> cartItem = new List<CartItem>();
     }
     cartItem[index].quantity = ++cartItem[index].quantity;
     //int i = cartItem[1].quantity;
-    //cartItem[index].subTotal = (cartItem[index].quantity * cartItem[index].cartPrice).roundToDouble() as String;
+    double value = double.parse(cartItem[index].cartPrice);
+    cartItem[index].subTotal = (cartItem[index].quantity * value).roundToDouble();
   }
   getTotalAmount()
   {
     double totalAmount = 0.0;
+    int value;
     cartItem.forEach((element) 
     {
-     // totalAmount += element.subTotal;
+      value = int.parse(element.subTotal);
+      totalAmount += value;
     }
     );
     return totalAmount;
@@ -171,18 +176,18 @@ class Cart extends StatelessWidget {
                   SizedBox(height: 12.0),
                   cartList(),
                   SizedBox(height: 12.0),
-                  SizedBox(height: 12.0),
+                  /*SizedBox(height: 12.0),
                   Row(
                     children: <Widget>[
                       Text(
                         "Price: ",
                         style: TextStyle(
                             color: Colors.red[900],
-                            fontSize: 20,
+                            fontSize: 10,
                             fontWeight: FontWeight.bold),
                       ),
                     ],
-                  ),
+                  ),*/
                   Divider(
                     color: Colors.black,
                   ),
@@ -295,6 +300,18 @@ Widget cartList() {
               ),
             ]),
           ]),
+          SizedBox(height: 12.0),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        'Price: ${cartItem[index].subTotal}',
+                        style: TextStyle(
+                            color: Colors.red[900],
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
           Row(children: <Widget>[
             Container(
               width: 25.0,
@@ -351,7 +368,7 @@ Widget cartList() {
                 style: TextStyle(color: Colors.red[900], fontSize: 20),
               ),
               onPressed: () {
-                deleteItemFromCart();
+                deleteItemFromCart(index);
               },
             ),
             Spacer(),

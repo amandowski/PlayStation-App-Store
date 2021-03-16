@@ -9,20 +9,52 @@ class CartItem {
   String cartItemName;
   String cartPrice;
   String cartImage;
+  int quantity;
+  String subTotal;
 
-  CartItem({
-    this.cartItemName,
-    this.cartPrice,
-    this.cartImage,
-  });
+  CartItem(
+      {this.cartItemName,
+      this.cartPrice,
+      this.cartImage,
+      this.quantity,
+      this.subTotal});
 }
 
-List<CartItem> cartItem = [];
+List<CartItem> cartItem = new List<CartItem>();
+
+decrementItemFromCart(int index) {
+  if (cartItem[index].quantity > 1) {
+    cartItem[index].quantity = --cartItem[index].quantity;
+    //cartItem[i].subTotal = (cartItem[i].quantity * cartItem[i].cartPrice).roundToDouble() as String;
+  } else {
+    cartItem.removeAt(index);
+  }
+}
+
+deleteItemFromCart(int index) {
+  cartItem.removeAt(index);
+}
+
+incrementItemFromCart(int index) {
+  if (cartItem[index].quantity == null) {
+    cartItem[index].quantity = 1;
+  }
+  cartItem[index].quantity = ++cartItem[index].quantity;
+  //int i = cartItem[1].quantity;
+  //cartItem[index].subTotal = (cartItem[index].quantity * cartItem[index].cartPrice).roundToDouble() as String;
+}
+
+getTotalAmount() {
+  double totalAmount = 0.0;
+  cartItem.forEach((element) {
+    // totalAmount += element.subTotal;
+  });
+  return totalAmount;
+}
 
 class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //int counter = 1;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -257,12 +289,12 @@ Widget cartList() {
               width: 25.0,
               height: 25.0,
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.blue[300],
                 borderRadius: BorderRadius.circular(4.0),
               ),
               child: GestureDetector(
                 onTap: () {
-                  //counter + 1;
+                  incrementItemFromCart(index);
                 },
                 child: Icon(
                   Icons.add,
@@ -274,8 +306,9 @@ Widget cartList() {
             //print (counter),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              //cartItem[index].quantity = 1;
               child: Text(
-                "1",
+                cartItem[index].quantity.toString(),
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -291,7 +324,7 @@ Widget cartList() {
               ),
               child: GestureDetector(
                 onTap: () {
-                  //counter - 1;
+                  decrementItemFromCart(index);
                 },
                 child: Icon(
                   Icons.remove,
@@ -307,7 +340,7 @@ Widget cartList() {
                 style: TextStyle(color: Colors.red[900], fontSize: 20),
               ),
               onPressed: () {
-                //Navigator.pop(context);
+                deleteItemFromCart(index);
               },
             ),
             Spacer(),

@@ -148,7 +148,8 @@ class Item extends StatelessWidget {
                   cartItem.add(CartItem(
                       cartItemName: itemName,
                       cartPrice: price,
-                      cartImage: image));
+                      cartImage: image,
+                      quantity: 1));
                 },
                 child: Text(
                   'Add to Cart',

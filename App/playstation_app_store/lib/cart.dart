@@ -10,7 +10,7 @@ class CartItem {
   String cartPrice;
   String cartImage;
   int quantity;
-  String subTotal;
+  double subTotal;
 
   CartItem(
       {this.cartItemName,
@@ -25,7 +25,6 @@ List<CartItem> cartItem = new List<CartItem>();
 decrementItemFromCart(int index) {
   if (cartItem[index].quantity > 1) {
     cartItem[index].quantity = --cartItem[index].quantity;
-    //cartItem[i].subTotal = (cartItem[i].quantity * cartItem[i].cartPrice).roundToDouble() as String;
   } else {
     cartItem.removeAt(index);
   }
@@ -40,14 +39,12 @@ incrementItemFromCart(int index) {
     cartItem[index].quantity = 1;
   }
   cartItem[index].quantity = ++cartItem[index].quantity;
-  //int i = cartItem[1].quantity;
-  //cartItem[index].subTotal = (cartItem[index].quantity * cartItem[index].cartPrice).roundToDouble() as String;
 }
 
 getTotalAmount() {
   double totalAmount = 0.0;
   cartItem.forEach((element) {
-    // totalAmount += element.subTotal;
+    totalAmount += element.subTotal;
   });
   return totalAmount;
 }
@@ -158,20 +155,9 @@ class Cart extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 12.0),
-                  cartList(),
+                  CartListItem(),
                   SizedBox(height: 12.0),
                   SizedBox(height: 12.0),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        "Price: ",
-                        style: TextStyle(
-                            color: Colors.red[900],
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
                   Divider(
                     color: Colors.black,
                   ),
@@ -249,114 +235,133 @@ class Cart extends StatelessWidget {
   }
 }
 
-Widget cartList() {
-  if (cartItem.length != 0) {
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: cartItem.length,
-      itemBuilder: (context, index) {
-        return Column(children: <Widget>[
-          Row(children: <Widget>[
-            Container(
-              width: 80.0,
-              height: 80.0,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                image: DecorationImage(
-                  image: ExactAssetImage(cartItem[index].cartImage),
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-            SizedBox(height: 12.0),
-            Column(children: <Widget>[
+class CartListItem extends StatefulWidget {
+  @override
+  _CartListItemState createState() => new _CartListItemState();
+}
+
+class _CartListItemState extends State<CartListItem> {
+  @override
+  Widget build(BuildContext context) {
+    if (cartItem.length != 0) {
+      return ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: cartItem.length,
+        itemBuilder: (context, index) {
+          cartItem[index].subTotal = double.parse(cartItem[index].cartPrice) *
+              cartItem[index].quantity;
+          return Column(children: <Widget>[
+            Row(children: <Widget>[
               Container(
-                width: 100.0,
-                child: Text(
-                  cartItem[index].cartItemName,
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
+                width: 80.0,
+                height: 80.0,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  image: DecorationImage(
+                    image: ExactAssetImage(cartItem[index].cartImage),
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
               ),
+              SizedBox(height: 12.0),
+              Column(children: <Widget>[
+                Container(
+                  width: 100.0,
+                  child: Text(
+                    cartItem[index].cartItemName,
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ]),
             ]),
-          ]),
-          Row(children: <Widget>[
-            Container(
-              width: 25.0,
-              height: 25.0,
-              decoration: BoxDecoration(
-                color: Colors.blue[300],
-                borderRadius: BorderRadius.circular(4.0),
+            Row(children: <Widget>[
+              Container(
+                width: 25.0,
+                height: 25.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue[300],
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() => incrementItemFromCart(index));
+                  },
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
+                ),
               ),
-              child: GestureDetector(
-                onTap: () {
-                  incrementItemFromCart(index);
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(
+                  cartItem[index].quantity.toString(),
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                width: 25.0,
+                height: 25.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue[300],
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() => decrementItemFromCart(index));
+                  },
+                  child: Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
+                ),
+              ),
+              Spacer(),
+              RaisedButton(
+                child: Text(
+                  'Delete',
+                  style: TextStyle(color: Colors.red[900], fontSize: 20),
+                ),
+                onPressed: () {
+                  setState(() => deleteItemFromCart(index));
                 },
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  size: 20.0,
+              ),
+              Spacer(),
+              RaisedButton(
+                child: Text(
+                  'Save for later',
+                  style: TextStyle(color: Colors.red[900], fontSize: 20),
                 ),
-              ),
-            ),
-            //print (counter),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              //cartItem[index].quantity = 1;
-              child: Text(
-                cartItem[index].quantity.toString(),
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Container(
-              width: 25.0,
-              height: 25.0,
-              decoration: BoxDecoration(
-                color: Colors.blue[300],
-                borderRadius: BorderRadius.circular(4.0),
-              ),
-              child: GestureDetector(
-                onTap: () {
-                  decrementItemFromCart(index);
+                onPressed: () {
+                  // Navigator.pop(context);
                 },
-                child: Icon(
-                  Icons.remove,
-                  color: Colors.white,
-                  size: 20.0,
+              ),
+            ]),
+            Row(
+              children: <Widget>[
+                Text(
+                  "Price: " + cartItem[index].subTotal.toString(),
+                  style: TextStyle(
+                      color: Colors.red[900],
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
-              ),
+              ],
             ),
-            Spacer(),
-            RaisedButton(
-              child: Text(
-                'Delete',
-                style: TextStyle(color: Colors.red[900], fontSize: 20),
-              ),
-              onPressed: () {
-                deleteItemFromCart(index);
-              },
-            ),
-            Spacer(),
-            RaisedButton(
-              child: Text(
-                'Save for later',
-                style: TextStyle(color: Colors.red[900], fontSize: 20),
-              ),
-              onPressed: () {
-                // Navigator.pop(context);
-              },
-            ),
-          ])
-        ]);
-      },
-    );
+          ]);
+        },
+      );
+    }
+    return Text('Nothing in Cart');
   }
-  return Text('Nothing in Cart');
 }

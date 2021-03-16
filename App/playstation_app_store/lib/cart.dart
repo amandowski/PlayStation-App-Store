@@ -58,16 +58,10 @@ getTotalAmount() {
 getDiscount()
 {
   double disCountedAmount = 0.0;
-  cartItem.forEach((element) {
-    if(element.quantity >= 4)
-    {
-      disCountedAmount = element.subTotal-((element.subTotal)*0.10);
-    }
-    else
-    {
-      disCountedAmount = 0.0;
-    }
-  });
+  if(cartItem.length >= 3)
+  {
+    disCountedAmount = getTotalAmount()-(getTotalAmount()*0.10);
+  }
   return disCountedAmount;
 }
 
@@ -202,7 +196,7 @@ class Cart extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "Subtotal: ${getTotalAmount()}",
+                        "Subtotal:\$ ${getTotalAmount()}",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
@@ -214,7 +208,7 @@ class Cart extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "Discount: ${getDiscount().toStringAsFixed(2)}",
+                        "Discount:\$ ${getDiscount().toStringAsFixed(2)}",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
@@ -372,7 +366,7 @@ class _CartListItemState extends State<CartListItem> {
             Row(
               children: <Widget>[
                 Text(
-                  "Price: " + cartItem[index].subTotal.toString(),
+                  "Price: \$ " + cartItem[index].subTotal.toString(),
                   style: TextStyle(
                       color: Colors.red[900],
                       fontSize: 20,

@@ -109,8 +109,8 @@ class Controllers extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'Midnight Blue',
-                              price: ' 64.99', //update price
+                              itemName: '  Midnight Blue \n',
+                              price: '  64.99', //update price
                               image: 'assets/images/MidnightBlue.jpg',
                             ),
                           ));
@@ -146,8 +146,8 @@ class Controllers extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'Magma Red',
-                              price: ' 64.99', //update price
+                              itemName: '  Magma Red \n',
+                              price: '  64.99', //update price
                               image: 'assets/images/MagmaRed.jpg',
                             ),
                           ));
@@ -182,8 +182,8 @@ class Controllers extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'Glacier White',
-                              price: ' 64.99', //update price
+                              itemName: 'Glacier White \n',
+                              price: '  64.99', //update price
                               image: 'assets/images/GlacierWhite.jpg',
                             ),
                           ));

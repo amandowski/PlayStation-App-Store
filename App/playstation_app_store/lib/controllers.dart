@@ -128,7 +128,7 @@ class Controllers extends StatelessWidget {
                         child: Text(
                           'Midnight Blue',
                           style: TextStyle(
-                              color: Colors.indigo[900],
+                              color: Colors.blue,
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -164,7 +164,7 @@ class Controllers extends StatelessWidget {
                         child: Text(
                           'Magma Red',
                           style: TextStyle(
-                              color: Colors.indigo[900],
+                              color: Colors.blue,
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -201,7 +201,7 @@ class Controllers extends StatelessWidget {
                         child: Text(
                           'Glacier White',
                           style: TextStyle(
-                              color: Colors.indigo[900],
+                              color: Colors.blue,
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,

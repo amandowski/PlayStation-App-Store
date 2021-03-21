@@ -116,7 +116,7 @@ class Accessories extends StatelessWidget {
                         child: Text(
                           'DualShock 4',
                           style: TextStyle(
-                              color: Colors.indigo[900],
+                              color: Colors.blue[700],
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -153,7 +153,7 @@ class Accessories extends StatelessWidget {
                         child: Text(
                           'Gold Wireless Headset',
                           style: TextStyle(
-                              color: Colors.indigo[900],
+                              color: Colors.blue,
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -189,7 +189,7 @@ class Accessories extends StatelessWidget {
                         child: Text(
                           'HD Camera',
                           style: TextStyle(
-                              color: Colors.indigo[900],
+                              color: Colors.blue,
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,
@@ -226,7 +226,7 @@ class Accessories extends StatelessWidget {
                         child: Text(
                           'Move Motion Controller',
                           style: TextStyle(
-                              color: Colors.indigo[900],
+                              color: Colors.blue,
                               fontSize: 20,
                               fontWeight: FontWeight.w900),
                           textAlign: TextAlign.center,

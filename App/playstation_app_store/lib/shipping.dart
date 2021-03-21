@@ -59,7 +59,7 @@ Widget _buildName() {
 Widget _buildlastName() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'Last Name'),
-    maxLength: 15,
+    maxLength: 25,
     validator: (String value) {
       if (value.isEmpty) {
         return 'Name is Required';
@@ -89,7 +89,7 @@ Widget _buildphone() {
 Widget _buildemail() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'Email'),
-    maxLength: 15,
+    maxLength: 50,
     validator: (String value) {
       if (value.isEmpty) {
         return 'Name is Required';
@@ -104,7 +104,7 @@ Widget _buildemail() {
 Widget _buildadd1() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'Address'),
-    maxLength: 15,
+    maxLength: 25,
     validator: (String value) {
       if (value.isEmpty) {
         return 'Name is Required';
@@ -119,7 +119,7 @@ Widget _buildadd1() {
 Widget _buildadd2() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'Address2'),
-    maxLength: 15,
+    maxLength: 25,
     validator: (String value) {
       if (value.isEmpty) {
         return 'Name is Required';
@@ -134,7 +134,7 @@ Widget _buildadd2() {
 Widget _buildcity() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'City'),
-    maxLength: 15,
+    maxLength: 25,
     validator: (String value) {
       if (value.isEmpty) {
         return 'Name is Required';
@@ -164,7 +164,7 @@ Widget _buildState() {
 Widget _buildCountry() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'Country'),
-    maxLength: 15,
+    maxLength: 25,
     validator: (String value) {
       if (value.isEmpty) {
         return 'Name is Required';
@@ -179,7 +179,7 @@ Widget _buildCountry() {
 Widget _buildZipcode() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'ZipCode'),
-    maxLength: 15,
+    maxLength: 5,
     validator: (String value) {
       if (value.isEmpty) {
         return 'Name is Required';

@@ -135,7 +135,7 @@ class Accessories extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => Item(
                               itemName: 'Gold Wireless Headset',
-                              price: 'Update Price', //update price
+                              price: ' 99.99', //update price
                               image: 'assets/images/GoldWirelessHeadset.jpg',
                             ),
                           ));
@@ -172,7 +172,7 @@ class Accessories extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => Item(
                               itemName: 'HD Camera',
-                              price: 'Update Price', //update price
+                              price: ' 59.99', //update price
                               image: 'assets/images/HDCamera.jpg',
                             ),
                           ));
@@ -207,8 +207,8 @@ class Accessories extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'Move Motion Controller',
-                              price: 'Update Price', //update price
+                              itemName: 'Move Motion Controller (2 Pack)',
+                              price: ' 99.99', //update price
                               image: 'assets/images/MoveMotionController.jpg',
                             ),
                           ));

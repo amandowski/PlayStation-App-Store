@@ -182,7 +182,7 @@ class Controllers extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Item(
-                              itemName: 'Glacier White \n',
+                              itemName: '  Glacier White \n',
                               price: '  64.99', //update price
                               image: 'assets/images/GlacierWhite.jpg',
                             ),

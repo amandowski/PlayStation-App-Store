@@ -10,6 +10,7 @@ class Total extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getTotalAmount();
+    getDiscount();
     return Column(children: <Widget>[
       ListView.builder(
         scrollDirection: Axis.vertical,
@@ -21,8 +22,8 @@ class Total extends StatelessWidget {
           return Column(children: <Widget>[
             Row(children: <Widget>[
               Container(
-                width: 80.0,
-                height: 80.0,
+                width: 50.0,
+                height: 50.0,
                 decoration: BoxDecoration(
                   color: Colors.red,
                   image: DecorationImage(
@@ -34,13 +35,13 @@ class Total extends StatelessWidget {
               SizedBox(height: 12.0),
               Column(children: <Widget>[
                 Container(
-                  width: 150.0,
+                  width: 200.0,
                   child: Text(
                     cartItem[index].cartItemName,
                     textAlign: TextAlign.right,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
+                      fontSize: 15.0,
                     ),
                   ),
                 ),
@@ -52,7 +53,7 @@ class Total extends StatelessWidget {
                 child: Text(
                   "Quantity: " + cartItem[index].quantity.toString(),
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 15.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -64,7 +65,7 @@ class Total extends StatelessWidget {
                   "Price: \$ " + cartItem[index].subTotal.toString(),
                   style: TextStyle(
                       color: Colors.red[900],
-                      fontSize: 20,
+                      fontSize: 15.0,
                       fontWeight: FontWeight.bold),
                 ),
               ],
@@ -138,7 +139,20 @@ class Total extends StatelessWidget {
                   return AlertDialog(
                     // Retrieve the text the that user has entered by using the
                     // TextEditingController.
-                    content: Text("Order Completed \n Thank you !"),
+                    title: Text("Order Completed \n\n  Thank you !"),
+                    actions: <Widget>[
+                      // usually buttons at the bottom of the dialog
+                      new FlatButton(
+                        child: new Text("Close"),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      PlayStationApp()));
+                        },
+                      ),
+                    ],
                   );
                 },
               );

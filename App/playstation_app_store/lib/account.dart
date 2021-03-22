@@ -3,6 +3,7 @@ import 'package:playstation_app_store/cart.dart';
 import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/accessories.dart';
 import 'package:playstation_app_store/item.dart';
+import 'package:playstation_app_store/main.dart';
 
 class Account extends StatefulWidget {
   @override
@@ -144,7 +145,13 @@ class _SignupPageState extends State<Account> {
                         color: Colors.indigo[900],
                         elevation: 7.0,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        PlayStationApp()));
+                          },
                           child: Center(
                             child: Text(
                               'SIGNUP',
@@ -156,7 +163,34 @@ class _SignupPageState extends State<Account> {
                           ),
                         ),
                       )),
-                  SizedBox(height: 20.0),
+                  SizedBox(height: 10.0),
+                  Container(
+                      height: 40.0,
+                      child: Material(
+                        borderRadius: BorderRadius.circular(20.0),
+                        shadowColor: Colors.indigo[900],
+                        color: Colors.indigo[900],
+                        elevation: 7.0,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        PlayStationApp()));
+                          },
+                          child: Center(
+                            child: Text(
+                              'Continue As Guest',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                        ),
+                      )),
+                  SizedBox(height: 10.0),
                   Container(
                     height: 40.0,
                     color: Colors.transparent,

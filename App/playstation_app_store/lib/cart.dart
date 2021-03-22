@@ -56,7 +56,7 @@ getTotalAmount() {
 getDiscount() {
   disCountedAmount = 0.0;
   if (cartItem.length >= 4) {
-    disCountedAmount = totalAmount - (totalAmount * 0.10);
+    disCountedAmount = (totalAmount * 0.10);
   }
 }
 
@@ -237,7 +237,7 @@ class _CartListItemState extends State<CartListItem> {
                 SizedBox(height: 12.0),
                 Column(children: <Widget>[
                   Container(
-                    width: 100.0,
+                    width: 200.0,
                     child: Text(
                       cartItem[index].cartItemName,
                       textAlign: TextAlign.right,
@@ -316,7 +316,10 @@ class _CartListItemState extends State<CartListItem> {
                     style: TextStyle(color: Colors.red[900], fontSize: 20),
                   ),
                   onPressed: () {
-                    // Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Account()),
+                    );
                   },
                 ),
               ]),

@@ -208,19 +208,6 @@ class FormScreenState extends State<Shipping> {
                 _buildCountry(),
                 _buildZipcode(),
                 SizedBox(height: 70),
-                RaisedButton(
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(color: Colors.red[900], fontSize: 20),
-                  ),
-                  onPressed: () {
-                    if (!_formKey.currentState.validate()) {
-                      return;
-                    }
-
-                    _formKey.currentState.save();
-                  },
-                )
               ],
             ),
           ),

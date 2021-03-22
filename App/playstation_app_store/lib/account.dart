@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:playstation_app_store/accessories.dart';
-import 'package:playstation_app_store/consoles.dart';
 import 'package:playstation_app_store/cart.dart';
+import 'package:playstation_app_store/consoles.dart';
+import 'package:playstation_app_store/accessories.dart';
+import 'package:playstation_app_store/item.dart';
 
-class Account extends StatelessWidget {
+class Account extends StatefulWidget {
+  @override
+  _SignupPageState createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<Account> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return new Scaffold(
         appBar: AppBar(
           title: Text(
             "PlayStation",
@@ -64,125 +68,121 @@ class Account extends StatelessWidget {
               ],
             ),
           ),
-          actions: <Widget>[
-            Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Cart()),
-                    );
-                  },
-                  child: Icon(
-                    Icons.shopping_cart,
-                    size: 26.0,
-                  ),
-                )),
-            Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Account()),
-                    );
-                  },
-                  child: Icon(
-                    Icons.account_circle,
-                    size: 26.0,
-                  ),
-                )),
-          ],
         ),
-        /*body: SingleChildScrollView(
-          child: Container(
-              margin: EdgeInsets.all(24),
+        //resizeToAvoidBottomPadding: false,
+        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+            Widget>[
+          Container(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(15.0, 50.0, 0.0, 0.0),
+                  child: Text(
+                    'Signup',
+                    style:
+                        TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(260.0, 80.0, 0.0, 0.0),
+                  child: Text(
+                    '.',
+                    style: TextStyle(
+                        fontSize: 80.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.indigo[900]),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+              padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
               child: Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {/* Write listener code here */},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4.jpg'),
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'PlayStation 4',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      width: 300.0,
-                      height: 200.0,
-                      padding: EdgeInsets.all(20.0),
-                      margin: EdgeInsets.all(20.0),
-                    ),
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                        labelText: 'EMAIL',
+                        labelStyle: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
+                        // hintText: 'EMAIL',
+                        // hintStyle: ,
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.green))),
                   ),
-                  GestureDetector(
-                    onTap: () {/* Write listener code here */},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4Slim.jpg'),
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'PlayStation 4 Slim',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      width: 300.0,
-                      height: 200.0,
-                      padding: EdgeInsets.all(20.0),
-                      margin: EdgeInsets.all(20.0),
-                    ),
+                  SizedBox(height: 10.0),
+                  TextField(
+                    decoration: InputDecoration(
+                        labelText: 'PASSWORD ',
+                        labelStyle: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.indigo[900]))),
+                    obscureText: true,
                   ),
-                  GestureDetector(
-                    onTap: () {/* Write listener code here */},
+                  SizedBox(height: 10.0),
+                  TextField(
+                    decoration: InputDecoration(
+                        labelText: 'NICK NAME ',
+                        labelStyle: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.indigo[900]))),
+                  ),
+                  SizedBox(height: 50.0),
+                  Container(
+                      height: 40.0,
+                      child: Material(
+                        borderRadius: BorderRadius.circular(20.0),
+                        shadowColor: Colors.indigo[900],
+                        color: Colors.indigo[900],
+                        elevation: 7.0,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              'SIGNUP',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                        ),
+                      )),
+                  SizedBox(height: 20.0),
+                  Container(
+                    height: 40.0,
+                    color: Colors.transparent,
                     child: Container(
                       decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/PS4Pro.jpg'),
-                          fit: BoxFit.fitHeight,
+                          border: Border.all(
+                              color: Colors.black,
+                              style: BorderStyle.solid,
+                              width: 1.0),
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20.0)),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Center(
+                          child: Text('Go Back',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat')),
                         ),
                       ),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          'PlayStation 4 Pro',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      width: 300.0,
-                      height: 200.0,
-                      padding: EdgeInsets.all(20.0),
-                      margin: EdgeInsets.all(20.0),
                     ),
                   ),
                 ],
-              )
-              ),
-        ),*/
-      ),
-    );
+              )),
+        ]));
   }
 }

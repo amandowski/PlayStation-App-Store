@@ -56,7 +56,7 @@ getTotalAmount() {
 getDiscount() {
   disCountedAmount = 0.0;
   if (cartItem.length >= 4) {
-    disCountedAmount = getTotalAmount() - (getTotalAmount() * 0.10);
+    disCountedAmount = totalAmount - (totalAmount * 0.10);
   }
 }
 
@@ -212,6 +212,7 @@ class _CartListItemState extends State<CartListItem> {
   Widget build(BuildContext context) {
     if (cartItem.length != 0) {
       getTotalAmount();
+      getDiscount();
       return Column(children: <Widget>[
         ListView.builder(
           scrollDirection: Axis.vertical,

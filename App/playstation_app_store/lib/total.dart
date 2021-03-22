@@ -125,6 +125,25 @@ class Total extends StatelessWidget {
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold),
           ),
+          Spacer(),
+          RaisedButton(
+            child: Text(
+              'Submit',
+              style: TextStyle(color: Colors.red[900], fontSize: 20),
+            ),
+            onPressed: () {
+              return showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    // Retrieve the text the that user has entered by using the
+                    // TextEditingController.
+                    content: Text("Order Completed \n Thank you !"),
+                  );
+                },
+              );
+            },
+          ),
         ],
       ),
     ]);

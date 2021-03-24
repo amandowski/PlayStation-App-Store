@@ -65,7 +65,12 @@ class PlayStationApp extends StatelessWidget {
                 PopupMenuItem(
                   child: ListTile(
                     title: Text('Help'),
-                    onTap: () {/* Write listener code here */},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Account()),
+                      );
+                    },
                   ),
                 ),
               ],

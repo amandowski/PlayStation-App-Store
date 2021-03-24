@@ -15,7 +15,7 @@ class Item extends StatelessWidget {
       @required this.price,
       @required this.image})
       : super(key: key);
-      List<Item> item_cart = List<Item>();
+  List<Item> item_cart = List<Item>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -71,7 +71,12 @@ class Item extends StatelessWidget {
                   PopupMenuItem(
                     child: ListTile(
                       title: Text('Help'),
-                      onTap: () {/* Write listener code here */},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Account()),
+                        );
+                      },
                     ),
                   ),
                 ],

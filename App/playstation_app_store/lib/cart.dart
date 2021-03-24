@@ -242,6 +242,7 @@ class _CartListItemState extends State<CartListItem> {
                 SizedBox(height: 12.0),
                 Column(children: <Widget>[
                   Container(
+                    alignment: Alignment.topLeft,
                     width: 200.0,
                     child: Text(
                       cartItem[index].cartItemName,

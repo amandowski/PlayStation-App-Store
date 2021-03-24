@@ -22,7 +22,7 @@ class Total extends StatelessWidget {
           return Column(children: <Widget>[
             Row(children: <Widget>[
               Container(
-                alignment: Alignment.centerRight,
+                margin: EdgeInsets.all(8),
                 width: 50.0,
                 height: 50.0,
                 decoration: BoxDecoration(
@@ -36,6 +36,8 @@ class Total extends StatelessWidget {
               SizedBox(height: 12.0),
               Column(children: <Widget>[
                 Container(
+                  margin: EdgeInsets.all(8),
+                  alignment: Alignment.topLeft,
                   width: 200.0,
                   child: Text(
                     cartItem[index].cartItemName,

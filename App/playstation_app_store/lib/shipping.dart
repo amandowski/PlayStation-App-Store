@@ -87,7 +87,7 @@ class FormScreenState extends State<Shipping> {
       decoration: InputDecoration(labelText: 'Address'),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Name is Required';
+          return 'Address is Required';
         }
 
         return null;
@@ -104,7 +104,7 @@ class FormScreenState extends State<Shipping> {
       decoration: InputDecoration(labelText: 'Address2'),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Name is Required';
+          return 'Address2 is Required';
         }
 
         return null;
@@ -121,7 +121,7 @@ class FormScreenState extends State<Shipping> {
       decoration: InputDecoration(labelText: 'City'),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Name is Required';
+          return 'City is Required';
         }
 
         return null;
@@ -138,7 +138,7 @@ class FormScreenState extends State<Shipping> {
       decoration: InputDecoration(labelText: 'State'),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Name is Required';
+          return 'State is Required';
         }
 
         return null;
@@ -155,7 +155,7 @@ class FormScreenState extends State<Shipping> {
       decoration: InputDecoration(labelText: 'Country'),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Name is Required';
+          return 'Country is Required';
         }
 
         return null;
@@ -172,7 +172,7 @@ class FormScreenState extends State<Shipping> {
       decoration: InputDecoration(labelText: 'ZipCode'),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Name is Required';
+          return 'Zipcode is Required';
         }
 
         return null;

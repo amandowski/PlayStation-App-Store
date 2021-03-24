@@ -22,6 +22,7 @@ class Total extends StatelessWidget {
           return Column(children: <Widget>[
             Row(children: <Widget>[
               Container(
+                alignment: Alignment.centerRight,
                 width: 50.0,
                 height: 50.0,
                 decoration: BoxDecoration(
@@ -61,12 +62,15 @@ class Total extends StatelessWidget {
             ]),
             Row(
               children: <Widget>[
-                Text(
-                  "Price: \$ " + cartItem[index].subTotal.toString(),
-                  style: TextStyle(
-                      color: Colors.red[900],
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(
+                    "Price: \$ " + cartItem[index].subTotal.toString(),
+                    style: TextStyle(
+                        color: Colors.red[900],
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
@@ -96,35 +100,44 @@ class Total extends StatelessWidget {
       SizedBox(height: 12.0),
       Row(
         children: <Widget>[
-          Text(
-            "Subtotal: \$" + totalAmount.toString(),
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              "Subtotal: \$" + totalAmount.toString(),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
       SizedBox(height: 12.0),
       Row(
         children: <Widget>[
-          Text(
-            "Discount: \$" + disCountedAmount.toStringAsFixed(2),
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              "Discount: \$" + disCountedAmount.toStringAsFixed(2),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
       Row(
         children: <Widget>[
-          Text(
-            "Total: \$" + (totalAmount - disCountedAmount).toStringAsFixed(2),
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              "Total: \$" + (totalAmount - disCountedAmount).toStringAsFixed(2),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           Spacer(),
           RaisedButton(
